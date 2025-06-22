@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Pure JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Task Manager</h1>
+            <p>Stay organized and productive</p>
+        </header>
+
+        <!-- Stats Dashboard -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-info">
+                        <span class="stat-label">Total Tasks</span>
+                        <span class="stat-value" id="total-tasks">0</span>
+                    </div>
+                    <div class="stat-icon">📋</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-info">
+                        <span class="stat-label">Completed</span>
+                        <span class="stat-value" id="completed-tasks">0</span>
+                    </div>
+                    <div class="stat-icon">✅</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <div class="stat-info">
+                        <span class="stat-label">Completion Rate</span>
+                        <span class="stat-value" id="completion-rate">0%</span>
+                    </div>
+                    <div class="stat-icon">📊</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search tasks..." class="search-input">
+            </div>
+            <div class="filter-controls">
+                <select id="category-filter" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Health">Health</option>
+                    <option value="Learning">Learning</option>
+                </select>
+                <select id="status-filter" class="filter-select">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <button id="add-task-btn" class="add-btn">+ Add Task</button>
+            </div>
+        </div>
+
+        <!-- Task Form Modal -->
+        <div id="task-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">Add New Task</h2>
+                    <span class="close-btn" id="close-modal">&times;</span>
+                </div>
+                <form id="task-form" class="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Title *</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-category">Category</label>
+                            <select id="task-category">
+                                <option value="Personal">Personal</option>
+                                <option value="Work">Work</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Health">Health</option>
+                                <option value="Learning">Learning</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <select id="task-priority">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-due-date">Due Date</label>
+                        <input type="date" id="task-due-date">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="cancel-btn" class="cancel-btn">Cancel</button>
+                        <button type="submit" id="submit-btn" class="submit-btn">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tasks Container -->
+        <div id="tasks-container" class="tasks-container">
+            <div id="no-tasks" class="no-tasks">
+                <div class="no-tasks-icon">📝</div>
+                <h3>No tasks found</h3>
+                <p>Get started by adding your first task!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
