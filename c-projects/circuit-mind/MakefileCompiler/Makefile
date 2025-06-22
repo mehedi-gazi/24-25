@@ -19,6 +19,6 @@ test: $(TEST_OBJ)
     $(CC) -o $@ $^ $(CFLAGS)
 
 clean:
-    del *.o tests\*.o circuit.exe test.exe
+    rm -f *.o tests/*.o circuit test circuit.exe test.exe
 
 .PHONY: clean all
